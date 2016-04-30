@@ -1,6 +1,6 @@
 <?php
 /**
- * Faonn
+ * Faonni
  *  
  * NOTICE OF LICENSE
  *
