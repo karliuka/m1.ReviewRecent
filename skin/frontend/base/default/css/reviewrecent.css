@@ -1,0 +1,10 @@
+#customer-recent-reviews .rating-box {
+	float:none;
+}
+#customer-recent-reviews dd {
+	margin:0 0 10px 0;
+}
+#customer-recent-reviews .review-meta{
+	display:block;
+	color:#aaa;
+}

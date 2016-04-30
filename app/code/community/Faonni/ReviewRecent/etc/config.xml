@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Faonn
+ *  
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade module to newer
+ * versions in the future.
+ * 
+ * @package     Faonni_ReviewRecent
+ * @copyright   Copyright (c) 2015 Karliuka Vitalii(karliuka.vitalii@gmail.com) 
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+	<modules>
+		<Faonni_ReviewRecent>
+			<version>1.1.3</version>
+		</Faonni_ReviewRecent>
+	</modules>
+	<global>
+		<blocks>
+			<faonni_reviewrecent>
+				<class>Faonni_ReviewRecent_Block</class>
+			</faonni_reviewrecent>
+		</blocks>		
+		<helpers>
+			<faonni_reviewrecent>
+				<class>Faonni_ReviewRecent_Helper</class>
+			</faonni_reviewrecent>
+		</helpers>
+		<models>
+            <faonni_reviewrecent>
+                <class>Faonni_ReviewRecent_Model</class>
+            </faonni_reviewrecent>            
+        </models>
+		<resources>
+			<faonni_reviewrecent_setup>
+				<setup>
+					<module>Faonni_ReviewRecent</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</faonni_reviewrecent_setup>
+			<faonni_reviewrecent_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</faonni_reviewrecent_write>
+			<faonni_reviewrecent_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</faonni_reviewrecent_read>
+		</resources>
+	</global>
+    <frontend>	
+		<layout>
+			<updates>
+				<faonni_reviewrecent>
+					<file>faonni/reviewrecent.xml</file>
+				</faonni_reviewrecent>
+			</updates>
+		</layout>		
+    </frontend>	
+    <default>
+        <catalog>
+            <review>
+                <active_sidebar>1</active_sidebar>
+				<sidebar_area>left</sidebar_area>
+				<sidebar_review_count>3</sidebar_review_count>
+            </review>
+        </catalog>
+    </default>	
+</config> 

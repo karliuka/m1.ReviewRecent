@@ -1,0 +1,49 @@
+<?php
+/**
+ * Faonn
+ *  
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade module to newer
+ * versions in the future.
+ * 
+ * @package     Faonni_ReviewRecent
+ * @copyright   Copyright (c) 2015 Karliuka Vitalii(karliuka.vitalii@gmail.com) 
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php $collection = $this->getReviewsCollection() ?>
+<?php if (count($collection)): ?>
+<div class="ratings" id="customer-recent-reviews">
+	<h3><?php echo $this->__('Recent Reviews') ?></h3>
+	<dl>
+        <?php foreach ($collection as $_product):?>
+			<?php $width = 0 ?>
+			<?php $_votes = $_product->getRatingVotes() ?>
+			<?php if (count($_votes)): ?>
+				<?php foreach ($_votes as $_vote): ?>
+					<?php $width = $_vote->getPercent() ?>
+				<?php endforeach ?>
+			<?php endif ?>
+            <dt>
+				<div class="rating-box"><div class="rating" style="width:<?php echo $width ?>%;"></div></div>
+				<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $this->stripTags($_product->getName(), null, true) ?></a>
+            </dt>
+            <dd>
+                <?php echo nl2br($this->escapeHtml(Mage::helper('core/string')->truncate($_product->getDetail(), 90))) ?>
+                <span class="review-meta">
+                    <?php echo $this->__('Review by %s', $this->escapeHtml($_product->getNickname())) ?> | <?php echo $this->formatDate($_product->getReviewCreatedAt(), Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM)  ?>
+                </span>
+            </dd>		
+        <?php endforeach ?>
+    </dl>		
+</div>
+<?php endif ?>
